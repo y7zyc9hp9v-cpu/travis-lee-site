@@ -54,6 +54,42 @@
       color: var(--gold);
       font-weight: 600;
     }
+    .pack-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.1rem;
+      min-height: 3.25rem;
+      min-width: min(100%, 16rem);
+      padding: 0.85rem 1.5rem;
+      border: 3px solid var(--gold);
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--green);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pack-btn:active {
+      transform: scale(0.98);
+      background: #f0c84a;
+    }
+    .pack-msg {
+      margin: 0.9rem auto 0;
+      min-height: 1.4em;
+      max-width: 20rem;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .pack-msg.show {
+      opacity: 1;
+    }
     main {
       max-width: 720px;
       margin: 0 auto;
@@ -129,6 +165,8 @@
       </svg>
     </div>
     <p class="tagline">Go Pack Go</p>
+    <button class="pack-btn" type="button" id="packBtn">Go Pack Go</button>
+    <p class="pack-msg" id="packMsg" aria-live="polite"></p>
   </header>
   <main>
     <h2>Projects</h2>
@@ -151,5 +189,15 @@
     </div>
   </main>
   <footer>A simple page for Travis Lee</footer>
+  <script>
+    (function () {
+      var btn = document.getElementById("packBtn");
+      var msg = document.getElementById("packMsg");
+      btn.addEventListener("click", function () {
+        msg.textContent = "Sunday is coming.";
+        msg.classList.add("show");
+      });
+    })();
+  </script>
 </body>
 </html>
