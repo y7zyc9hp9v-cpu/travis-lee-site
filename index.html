@@ -77,6 +77,25 @@
       transform: scale(0.98);
       background: #f0c84a;
     }
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.1rem;
+    }
+    .btn-stack .pack-btn {
+      margin-top: 0;
+    }
+    .pack-btn.secondary {
+      background: transparent;
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    .pack-btn.secondary:active {
+      background: rgba(230, 180, 34, 0.15);
+      color: #fff;
+    }
     .pack-msg {
       margin: 0.9rem auto 0;
       min-height: 1.4em;
@@ -165,7 +184,10 @@
       </svg>
     </div>
     <p class="tagline">Go Pack Go</p>
-    <button class="pack-btn" type="button" id="packBtn">Go Pack Go</button>
+    <div class="btn-stack">
+      <button class="pack-btn" type="button" id="packBtn">Go Pack Go</button>
+      <button class="pack-btn secondary" type="button" id="grillBtn">Fire up the grill</button>
+    </div>
     <p class="pack-msg" id="packMsg" aria-live="polite"></p>
   </header>
   <main>
@@ -192,9 +214,14 @@
   <script>
     (function () {
       var btn = document.getElementById("packBtn");
+      var grill = document.getElementById("grillBtn");
       var msg = document.getElementById("packMsg");
       btn.addEventListener("click", function () {
         msg.textContent = "Sunday is coming.";
+        msg.classList.add("show");
+      });
+      grill.addEventListener("click", function () {
+        msg.textContent = "Tailgate time.";
         msg.classList.add("show");
       });
     })();
